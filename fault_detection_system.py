@@ -25,21 +25,21 @@ from sklearn.model_selection import cross_val_score
 
 np.random.seed(42)
 
-
-# Defining function for ideal sinusoidal signal
 def healthy_signal(A, omega, t):
-    signal = A * np.sin(omega * t)    # defining ideal sinusoidal signal
+    """Generates an ideal sinusoidal signal."""
+    signal = A * np.sin(omega * t)
     return signal
 
-# Defining functions for introducing realistic faults into the ideal signal
-def bias(signal, t, bias_value, bias_start_time, bias_end_time):    # introducing constant offset
+def bias(signal, t, bias_value, bias_start_time, bias_end_time):
+    """Adds a constant bias to the signal within a specific time range."""
     faulty_signal = np.copy(signal)
     start_index = np.where(t >= bias_start_time)[0][0]
     end_index = np.where(t >= bias_end_time)[0][0]
     faulty_signal[start_index:end_index] += bias_value
     return faulty_signal
 
-def drift(signal, t, drift_rate, drift_start_time, drift_end_time):    # introducing drift noise
+def drift(signal, t, drift_rate, drift_start_time, drift_end_time):
+    """Adds a linear drift to the signal over time."""
     faulty_signal = np.copy(signal)
     start_index = np.where(t >= drift_start_time)[0][0]
     end_index = np.where(t >= drift_end_time)[0][0]
@@ -47,20 +47,23 @@ def drift(signal, t, drift_rate, drift_start_time, drift_end_time):    # introdu
         faulty_signal[i] += drift_rate * (t[i] - drift_start_time)
     return faulty_signal
 
-def spike(signal, t, spike_magnitude, spike_trigger_times):    # introducing sudden outlier
+def spike(signal, t, spike_magnitude, spike_trigger_times):
+    """Adds a random-direction spike at a specific timestamp."""
     faulty_signal = np.copy(signal)
     spike_index = np.where(t >= spike_trigger_times)[0][0]
     faulty_signal[spike_index] += spike_magnitude * np.random.choice([-1, 1], replace = False)
     return faulty_signal
 
-def stuck(signal, t, stuck_value, stuck_start_time, stuck_end_time):    # introducing fault with constant sensor value
+def stuck(signal, t, stuck_value, stuck_start_time, stuck_end_time):
+    """Forces the signal to a constant value within a range."""
     faulty_signal = np.copy(signal)
     start_index = np.where(t >= stuck_start_time)[0][0]
     end_index = np.where(t >= stuck_end_time)[0][0]
     faulty_signal[start_index:end_index] = stuck_value
     return faulty_signal
 
-def burst(signal, t, burst_magnitude, burst_start_time, burst_end_time):    # introducing normally distributed noise
+def burst(signal, t, burst_magnitude, burst_start_time, burst_end_time):
+    """Adds random Gaussian noise to the signal within a range."""
     faulty_signal = np.copy(signal)
     start_index = np.where(t >= burst_start_time)[0][0]
     end_index = np.where(t >= burst_end_time)[0][0]
@@ -226,6 +229,7 @@ get_ipython().system('jupyter nbconvert --to script fault_detection_system.ipynb
 
 
 # In[ ]:
+
 
 
 
