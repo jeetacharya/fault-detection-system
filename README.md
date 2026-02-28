@@ -33,7 +33,7 @@ Fault Detection and Diagnosis System
 7. The overlap between the true and the predicted faulty readings graphically represents the accuracy of the Isolation Forest-trained model with respect to detecting anomalies.
 8. The third plot below shows the ideal (healthy) sensor signal, individual true fault types and individual predicted fault types that were predicted by the model trained with the Support Vector Classification (SVC) algorithm.
 9. The overlap between the individual true and the individual predicted fault types graphically represents the accuracy of the SVC-trained model with respect to classifying the fault types of the anomalous data points.
-![plots](https://github.com/jeetacharya/fault-detection-system/blob/46b73bacd3be6fc8efe092b7fca206ad103f810e/plots.png)
+![plots](https://github.com/jeetacharya/fault-detection-system/blob/3f7f2ae323696282491ed94e79de433e316a466a/plots.png)
 
 ## Industry practices:
 1. Industry practices for sensor fault detection and classification use:
