@@ -24,8 +24,8 @@ Fault Detection and Diagnosis System
 13. The cross validation score is then calculated to obtain a robust and reliable estimate of the model’s true predictive power and generalizability.
 
 ## Results:
-1. Predictions of the model trained with Isolation Forest unsupervised ML algorithm on the provided dataset yielded an accuracy of 80.8% which is the percentage of readings correctly predicted as faulty or not by running the model through the dataset.
-2. Predictions of the model trained with SVC supervised ML algorithm on the provided dataset yielded an accuracy of 97.6% which is the percentage of readings that were correctly classified with the correct fault types (0 - 5) after running the model through the dataset.
+1. Predictions of the model trained with Isolation Forest unsupervised ML algorithm on the provided dataset yielded an accuracy of 81.1% which is the percentage of readings correctly predicted as faulty or not by running the model through the dataset.
+2. Predictions of the model trained with SVC supervised ML algorithm on the provided dataset yielded an accuracy of 96.9% which is the percentage of readings that were correctly classified with the correct fault types (0 - 5) after running the model through the dataset.
 3. Cross validation accuracy of the model trained with SVC supervised ML algorithm on the provided dataset yielded an average accuracy of 95.3%.
 4. The prediction accuracy of the model using unsupervised ML algorithm was lower than the prediction accuracy of the model using supervised ML algorithm even with 50% test_size because the model was trained on the “ground truths” and then used for its prediction.
 5. The first plot below shows the ideal (healthy) sensor signal and the faulty (real) sensor signal.
